@@ -75,9 +75,18 @@ Unknown answers are written as `unknown`, never guessed.
 ## 📦 Install
 
 ```bash
+npx skills add madeinkenzo/new-project-skill
+```
+
+<details>
+<summary>Manual install</summary>
+
+```bash
 git clone https://github.com/madeinkenzo/new-project-skill.git
 cp -R new-project-skill/new-project ~/.claude/skills/new-project
 ```
+
+</details>
 
 Start a new Claude Code session and type:
 
