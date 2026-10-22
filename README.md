@@ -20,7 +20,7 @@ A [Claude Code](https://claude.com/claude-code) skill that turns "I have an idea
 Most projects start with a vague prompt and a lot of re-explaining. This skill front-loads the thinking:
 
 - 🎤 **Interviews you** in short rounds (max 4 questions each), skipping anything it already knows
-- 📋 **Drafts a playbook** with 13 fixed sections, from `Summary` to `Open`
+- 📋 **Drafts a playbook** with 14 fixed sections, from `Summary` to `Open`
 - ✅ **Waits for your yes** before it writes a single file
 - 🔁 **Remembers the project** so the next session reads the playbook instead of asking again
 
@@ -68,7 +68,7 @@ The answer is stored as `Tracking: <system> / <location> / <what goes in> / <who
 
 ## 🗂️ The playbook template
 
-`Summary` · `Users & problem` · `v1 done when` · `In scope` · `Out of scope` · `Stack & paths` · `Integrations & access` · `Risks & blockers` · `Working agreement` · `Milestones` · `Decisions log` · `Recent` · `Open`
+`Summary` · `Users & problem` · `v1 done when` · `In scope` · `Out of scope` · `Stack & paths` · `Integrations & access` · `Risks & blockers` · `Working agreement` · `Milestones` · `Decisions log` · `Tracker items` · `Recent` · `Open`
 
 Unknown answers are written as `unknown`, never guessed.
 

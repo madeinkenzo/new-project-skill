@@ -64,7 +64,7 @@ Detected tools (Step 0) become the recommended default. Record the answers under
 
 ## Step 4: Draft and approve
 Sections in this order (write "unknown" rather than guessing):
-`Summary` · `Users & problem` · `v1 done when` · `In scope` · `Out of scope` · `Stack & paths` · `Integrations & access` · `Risks & blockers` · `Working agreement` · `Milestones` · `Decisions log` · `Recent` · `Open`
+`Summary` · `Users & problem` · `v1 done when` · `In scope` · `Out of scope` · `Stack & paths` · `Integrations & access` · `Risks & blockers` · `Working agreement` · `Milestones` · `Decisions log` · `Tracker items` · `Recent` · `Open`
 
 Show the draft and wait for a yes before writing any file.
 
@@ -88,6 +88,11 @@ Show the draft and wait for a yes before writing any file.
 
 Never claim items were created in a system the agent could not reach.
 
+**Tracker ledger (idempotency):** keep a `## Tracker items` table in the playbook: `Item | Tracker ID or URL | Status (created / failed / done)`.
+- Before creating anything, read the ledger and query the tracker for those IDs. Skip items that exist; create only what is missing.
+- After each write, record the returned ID immediately. On a partial failure, record the successes, list the failures, and say which failed. Never retry the whole batch.
+- Update mode reconciles first: ledger rows whose ID no longer exists in the tracker are flagged for the user, not silently recreated.
+
 No secrets in any file, note, memory or task.
 
 ## Step 6: Hand over
@@ -102,6 +107,7 @@ End with the first milestone and one next action. Build only if the user says go
 | Duplicating the playbook in folder and vault | Vault holds it; folder keeps a stub |
 | Overwriting existing notes or `CLAUDE.md` | Append or propose a diff |
 | Vague answers ("make it good") | Ask for an observable check |
+| Creating tracker items without checking the ledger, or not saving returned IDs | Read the ledger first; record every ID as it returns |
 | Assuming one tracker, or skipping the question because no connector is detected | Always ask; fall back to a paste-ready checklist |
 | Writing files or creating tasks before approval | Show the draft, wait |
 | Coding straight after the interview | Stop at the first milestone unless told to go |
