@@ -48,6 +48,8 @@ The skill asks what you are building and adds questions for it:
 Everything below is **optional**. The skill detects each one first and falls back gracefully.
 
 ### 📓 Obsidian vault
+Reads narrowly to keep context small: file names first, then only the headings and matching sections of the note for this project (about 300 lines max), and related notes only through its frontmatter and `[[links]]`, with your approval. It never scans the whole vault.
+
 Reads existing `Projects/<Name>.md` notes, writes the playbook there with `status / next / blocked` frontmatter, and keeps the folder's `PLAYBOOK.md` as a short pointer so there is one source of truth. Never moves, renames or deletes your notes.
 
 ### 🧠 agentmemory

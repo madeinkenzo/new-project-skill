@@ -26,6 +26,14 @@ Tell the user in one line what was found. Then choose the mode:
 | User typed `NEW PROJECT quick`, or says it is a small idea | **Quick** (5 questions) |
 | A vault note, memory or playbook already exists | **Update** |
 
+## Vault reading rules (keep context small)
+Never scan the whole vault. Read in this order and stop when you have enough:
+1. File names only: list `Projects/` and match by project name. If several match, ask which one before reading any.
+2. The matched note's headings and frontmatter first. Then read only the sections that map to a playbook section, capped at about 300 lines in total. Summarise the rest in one line each.
+3. Related notes only via the matched note's frontmatter (`repo`, `path`, `url`) and its `[[links]]`. List the candidates to the user and read only the ones they approve.
+4. Never read other folders (Inbox, Memory, journals) unless the user points to a note.
+Everything read is a hint: show it as "Assuming X, correct me", and cite the note it came from.
+
 ## Update mode (project already exists)
 1. Map the existing note, memory and folder onto the playbook sections. Old notes often hold the content under other headings; reuse it, don't re-ask it.
 2. List which sections are missing or stale (blocked, next, v1 checks, out of scope are the usual gaps).
@@ -104,6 +112,7 @@ End with the first milestone and one next action. Build only if the user says go
 | Full interview on a project that already has a note | Update mode: ask only about gaps |
 | Re-asking what memory or the vault already says | Pre-fill and confirm |
 | Failing when vault, memory or task app is missing | Detect first, fall back to folder files |
+| Reading every note that mentions the project | Follow the vault reading rules: names, headings, approved links only |
 | Duplicating the playbook in folder and vault | Vault holds it; folder keeps a stub |
 | Overwriting existing notes or `CLAUDE.md` | Append or propose a diff |
 | Vague answers ("make it good") | Ask for an observable check |
